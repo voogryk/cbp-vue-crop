@@ -30,7 +30,7 @@ Option | Description | Type | Default
 `containerSize` | container size *example: `{width:900, height:700}` or `600`* | object/number | *`600`*
 `pickerSize` | container size *example: `{width:400, height:200}` or `300`* | object/number | *`300`*
 `initialScale` | initial scale of picker | number | *`1`*
-`stuck` | if its true you can drag or scale image from picker area | boolean | *`true`*
+`stuck` | if its true you cann't drag or scale image from picker area | boolean | *`true`*
 `minScale` | minimal scale of picker, if `stuck` option is `true`, this options won't be used | number | *`0.2`*
 `maxScale` | maximal scale of picker | number | *`0.2`*
 `scaleStyle` | vue style of scale | object | *`{}`*
