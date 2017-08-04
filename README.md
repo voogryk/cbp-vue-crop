@@ -2,6 +2,18 @@
 
 > Simple and beauty Image Cropper for Vue
 
+### Install
+
+`npm install -s cbp-vue-crop`
+
+### Usage
+
+```bash
+
+<cbp-vue-crop :options="options" :img="img"></cbp-vue-crop>
+
+```
+
 ### Development Setup
 
 ```bash
