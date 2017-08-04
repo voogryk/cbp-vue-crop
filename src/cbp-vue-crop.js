@@ -117,6 +117,13 @@ export default {
                 this.left = left;
             }
             this.scale = e.target.value;
-        }
+        },
+
+        crop() {
+            return [
+                { x: ((this.defaults.containerSize.width - this.defaults.pickerSize.width) / 2 - this.left) / this.scale, y: ((this.defaults.containerSize.height - this.defaults.pickerSize.height) / 2 - this.top) / this.scale },
+                { x: ((this.defaults.containerSize.width + this.defaults.pickerSize.width) / 2 - this.left) / this.scale, y: ((this.defaults.containerSize.height + this.defaults.pickerSize.height) / 2 - this.top) / this.scale }
+            ]
+        },
     }
 }

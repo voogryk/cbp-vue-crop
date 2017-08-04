@@ -10,7 +10,32 @@
 
 ```bash
 
-<cbp-vue-crop :options="options" :img="img"></cbp-vue-crop>
+<template>
+    ....
+    <cbp-vue-crop ref="cbpVueCrop" :options="options" :img="img"></cbp-vue-crop>
+    ....
+</template>
+
+<script>
+  import cbpVueCrop from '../src/cbp-vue-crop.vue'
+  ....
+  export default {
+    ....
+    components: { cbpVueCrop },
+    ....
+    methods: {
+      ....
+      onCrop() {
+        ....
+        let crop = this.$refs.cbpVueCrop.crop();
+        ....
+      }
+      ....
+    }
+    ....
+  }
+</script>
+
 
 ```
 
@@ -60,3 +85,9 @@ Option | Description | Type | Default
 *String*
 
 Url to image wich u want to crop
+
+### Methods
+
+Method | Description | Return Type | Example 
+--- | --- | --- | ---
+crop | crop return coordinates of top left corner and bottom right corner | array | [{x:12, y:34}, {x: 567, y:890}]

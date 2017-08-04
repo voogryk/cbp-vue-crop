@@ -1,6 +1,9 @@
 <template lang="pug">
   .docs
-    cbp-vue-crop(options={}, img='https://static.pexels.com/photos/126407/pexels-photo-126407.jpeg')
+    cbp-vue-crop(ref="cbpVueCrop" options={}, img='https://static.pexels.com/photos/126407/pexels-photo-126407.jpeg')
+    button(@click="onCrop") CROP
+    h4 Crop Result
+    div {{cropData}}
     h3 Usage
     pre
       code(v-text="sourcecode")
@@ -20,7 +23,7 @@
       li  pickerStyle: vue style of picker {object} (default: {});
       li  backgroundColor: color of container background {string} (default: '#333333');
     h4 img
-      div url to image
+    div url to image
 </template>
 
 <script>
@@ -31,7 +34,17 @@
     components: { cbpVueCrop },
 
     data () {
-      return { sourcecode: '<cbp-vue-crop :options="options" :img="img"></cbp-vue-crop>' }
+      return { 
+        sourcecode: '<cbp-vue-crop :options="options" :img="img"></cbp-vue-crop>',
+        cropData: 'Click crop button to get data'
+      }
+    },
+
+    methods: {
+      onCrop() {
+        let crop = this.$refs.cbpVueCrop.crop();
+        this.cropData = "[{ x: " + crop[0].x + ", y: " + crop[0].y + " }, { x: " + crop[1].x + ", y: " + crop[1].y + " }]"; 
+      }
     }
   }
 </script>
