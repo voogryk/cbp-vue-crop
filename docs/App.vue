@@ -1,20 +1,32 @@
 <template lang="pug">
   .docs
-    hello-world(emoji="🤔")
+    cbp-vue-crop(options={})
     h3 Usage
     pre
       code(v-text="sourcecode")
+    h3 Options
+    ul.options
+      li  isCirclePicker: is picker area circle {boolean} (default: true);
+      li  containerSize: container size {object/number} example: {width:900, height:700} or 600 (default: 600);
+      li  pickerSize: container size {object/number} example: {width:400, height:200} or 300 (default: 300);
+      li  initialScale: initial scale of picker {number} (default: 1);
+      li  minScale: minimal scale of picker, if stuck option is true, this options unnecessary {number} (default: 0.2);
+      li  maxScale: maximal scale of picker {number} (default: 0.2);;
+      li  stuck: if its true you can drag or scale image from picker area {boolean} (default: true);
+      li  scaleStyle: vue style of scale {object} (default: {});
+      li  containerStyle: vue style of container {object} (default: {});
+      li  pickerStyle: vue style of picker {object} (default: {});
 </template>
 
 <script>
-  import HelloWorld from '../src/HelloWorld.vue'
+  import cbpVueCrop from '../src/cbp-vue-crop.vue'
 
   export default {
     name: 'App',
-    components: { HelloWorld },
+    components: { cbpVueCrop },
 
     data () {
-      return { sourcecode: 'hello-world(emoji="🤔")' }
+      return { sourcecode: '<cbp-vue-crop options="options"></cbp-vue-crop>' }
     }
   }
 </script>
@@ -32,5 +44,9 @@
     border-radius: 5px;
     background: #3d3d3d;
     color: #f3f3fe;
+  }
+
+  .options {
+    text-align: left;
   }
 </style>
