@@ -2,10 +2,6 @@
 
 > Simple and beauty Image Cropper for Vue
 
-<div style="text-align:center">
-  <img src="src/assets/vue.png" alt="vue" title="vue"/>
-</div>
-
 ### Development Setup
 
 ```bash
@@ -32,7 +28,7 @@ Option | Description | Type | Default
 `initialScale` | initial scale of picker | number | *`1`*
 `stuck` | if its true you cann't drag or scale image from picker area | boolean | *`true`*
 `minScale` | minimal scale of picker, if `stuck` option is `true`, this options won't be used | number | *`0.2`*
-`maxScale` | maximal scale of picker | number | *`0.2`*
+`maxScale` | maximal scale of picker | number | *`2`*
 `scaleStyle` | vue style of scale | object | *`{}`*
 `containerStyle` | vue style of container | object | *`{}`*
 `pickerStyle` | vue style of picker | object | *`{}`*
