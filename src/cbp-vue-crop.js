@@ -81,13 +81,15 @@ export default {
             let top = this.top;
             left += e.movementX;
             top += e.movementY;
-            if (top > (this.defaults.containerSize.height - this.defaults.pickerSize.height) / 2
-            || top + (this.imgHeight * this.scale) < (this.defaults.containerSize.height + this.defaults.pickerSize.height) / 2) {
-                top -= e.movementY;
-            }
-            if (left > (this.defaults.containerSize.width - this.defaults.pickerSize.width) / 2
-            || left + (this.imgWidth * this.scale) < (this.defaults.containerSize.width + this.defaults.pickerSize.width) / 2) {
-                left -= e.movementX;
+            if (this.defaults.stuck) {
+                if (top > (this.defaults.containerSize.height - this.defaults.pickerSize.height) / 2
+                || top + (this.imgHeight * this.scale) < (this.defaults.containerSize.height + this.defaults.pickerSize.height) / 2) {
+                    top -= e.movementY;
+                }
+                if (left > (this.defaults.containerSize.width - this.defaults.pickerSize.width) / 2
+                || left + (this.imgWidth * this.scale) < (this.defaults.containerSize.width + this.defaults.pickerSize.width) / 2) {
+                    left -= e.movementX;
+                }
             }
             this.top = top;
             this.left = left;
@@ -102,16 +104,18 @@ export default {
         },
 
         changeScale(e) {
-            let top = this.top;
-            let left = this.left;
-            if (top + (this.imgHeight * e.target.value) < (this.defaults.containerSize.height + this.defaults.pickerSize.height) / 2) {
-                top += (this.defaults.containerSize.height + this.defaults.pickerSize.height) / 2 - (top + (this.imgHeight * e.target.value));
+            if (this.defaults.stuck) {
+                let top = this.top;
+                let left = this.left;
+                if (top + (this.imgHeight * e.target.value) < (this.defaults.containerSize.height + this.defaults.pickerSize.height) / 2) {
+                    top += (this.defaults.containerSize.height + this.defaults.pickerSize.height) / 2 - (top + (this.imgHeight * e.target.value));
+                }
+                if (left + (this.imgWidth * e.target.value) < (this.defaults.containerSize.width + this.defaults.pickerSize.width) / 2) {
+                    left += (this.defaults.containerSize.width + this.defaults.pickerSize.width) / 2 - (left + (this.imgWidth * e.target.value));
+                }
+                this.top = top;
+                this.left = left;
             }
-            if (left + (this.imgWidth * e.target.value) < (this.defaults.containerSize.width + this.defaults.pickerSize.width) / 2) {
-                left += (this.defaults.containerSize.width + this.defaults.pickerSize.width) / 2 - (left + (this.imgWidth * e.target.value));
-            }
-            this.top = top;
-            this.left = left;
             this.scale = e.target.value;
         }
     }
