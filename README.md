@@ -32,8 +32,10 @@ $ npm run build
 
 ### Parameters
 
-##### options
+#### options
+
 *Object*
+
 Option | Description | Type | Default 
 --- | --- | --- | ---
 `isCirclePicker` | is picker area circle | boolean | *`true`*
@@ -49,6 +51,8 @@ Option | Description | Type | Default
 `pickerStyle` | vue style of picker | object | *`{}`*
 `backgroundColor` | background color of container | string | *`'#333333'`*
 
-##### img
+#### img
+
 *String*
+
 Url to image wich u want to crop

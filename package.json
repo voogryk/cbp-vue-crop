@@ -1,6 +1,6 @@
 {
   "name": "cbp-vue-crop",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple and beauty Image Cropper for Vue",
   "main": "dist/cbp-vue-crop.min.js",
   "author": {
