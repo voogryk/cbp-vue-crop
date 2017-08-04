@@ -4,7 +4,8 @@
     h3 Usage
     pre
       code(v-text="sourcecode")
-    h3 Options
+    h3 Parameters
+    h5 options
     ul.options
       li  isCirclePicker: is picker area circle {boolean} (default: true);
       li  containerSize: container size {object/number} example: {width:900, height:700} or 600 (default: 600);
@@ -16,6 +17,8 @@
       li  scaleStyle: vue style of scale {object} (default: {});
       li  containerStyle: vue style of container {object} (default: {});
       li  pickerStyle: vue style of picker {object} (default: {});
+    h5 img
+      div url to image
 </template>
 
 <script>

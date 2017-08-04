@@ -18,7 +18,9 @@ $ npm run test
 $ npm run build
 ```
 
-### Options
+### Parameters
+
+##### options
 
 Option | Description | Type | Default 
 --- | --- | --- | ---
@@ -32,3 +34,7 @@ Option | Description | Type | Default
 `scaleStyle` | vue style of scale | object | *`{}`*
 `containerStyle` | vue style of container | object | *`{}`*
 `pickerStyle` | vue style of picker | object | *`{}`*
+
+##### img
+
+Url to image wich u want to crop
