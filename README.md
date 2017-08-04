@@ -21,7 +21,7 @@ $ npm run build
 ### Parameters
 
 ##### options
-
+*Object*
 Option | Description | Type | Default 
 --- | --- | --- | ---
 `isCirclePicker` | is picker area circle | boolean | *`true`*
@@ -31,10 +31,12 @@ Option | Description | Type | Default
 `stuck` | if its true you cann't drag or scale image from picker area | boolean | *`true`*
 `minScale` | minimal scale of picker, if `stuck` option is `true`, this options won't be used | number | *`0.2`*
 `maxScale` | maximal scale of picker | number | *`2`*
+`stepScale` | step of scale | number | *`0.0001`*
 `scaleStyle` | vue style of scale | object | *`{}`*
 `containerStyle` | vue style of container | object | *`{}`*
 `pickerStyle` | vue style of picker | object | *`{}`*
+`backgroundColor` | background color of container | string | *`'#333333'`*
 
 ##### img
-
+*String*
 Url to image wich u want to crop

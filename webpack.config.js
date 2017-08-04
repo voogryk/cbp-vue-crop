@@ -1,6 +1,10 @@
 const path = require('path')
 const webpack = require('webpack')
 
+function resolve(dir) {
+    return path.join(__dirname, '..', dir);
+}
+
 module.exports = {
   entry: './docs/main.js',
 
@@ -23,8 +27,7 @@ module.exports = {
         loader: 'vue-loader',
         options: {
           loaders: {
-            'scss': 'vue-style-loader!css-loader!sass-loader',
-            'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
+            'styl': 'vue-style-loader!css-loader!styl-loader',
           }
         }
       },
@@ -39,6 +42,11 @@ module.exports = {
         options: {
           name: '[name].[ext]?[hash]'
         }
+      },
+      {
+        test: /\.styl$/,
+        include: [resolve('src')],
+        loader: 'css-loader!stylus-loader',
       }
     ]
   },

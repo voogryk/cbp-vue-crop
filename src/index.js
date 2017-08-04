@@ -1,5 +1,5 @@
-import HelloWorld from './HelloWorld.vue'
+import cbpVueCrop from './cbp-vue-crop.vue'
 
-export { HelloWorld }
+export { cbpVueCrop }
 
-export default HelloWorld
+export default cbpVueCrop

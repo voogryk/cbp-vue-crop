@@ -1,4 +1,17 @@
 {
-  "extends": "standard",
-  "plugins": [ "html" ]
+  "extends": "eslint:recommended",
+  "plugins": [ "html" ],
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module"
+  },
+  "rules": {
+      "indent": ["error", 4],
+      "es6": 0
+  },
+  "globals": {
+    "document": true,
+    "window": true,
+    "console": true
+  }
 }
