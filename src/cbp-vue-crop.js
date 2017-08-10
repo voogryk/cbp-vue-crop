@@ -77,6 +77,7 @@ export default {
         },
 
         mouseMove(e) {
+            e.preventDefault();
             let left = this.left;
             let top = this.top;
             left += e.movementX;

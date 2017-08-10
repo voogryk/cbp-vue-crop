@@ -1,6 +1,6 @@
 <template lang="pug">
   .docs
-    cbp-vue-crop(ref="cbpVueCrop" options={}, img='https://static.pexels.com/photos/126407/pexels-photo-126407.jpeg')
+    cbp-vue-crop(ref="cbpVueCrop" :options="{pickerSize: 300, containerSize: 400}", img='https://static.pexels.com/photos/126407/pexels-photo-126407.jpeg')
     button(@click="onCrop") CROP
     h4 Crop Result
     div {{cropData}}
