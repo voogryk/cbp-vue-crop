@@ -24,6 +24,9 @@ export default {
             scale: 1,
             top: 0,
             left: 0,
+            screenX: 0,
+            screenY: 0,
+            dragging: false,
         }
     },
 
@@ -65,7 +68,7 @@ export default {
                 this.defaults.minScale = Math.max(this.defaults.pickerSize.width, this.defaults.pickerSize.height) / Math.min(this.imgWidth, this.imgHeight);
                 this.defaults.maxScale = (Math.max(this.defaults.pickerSize.width, this.defaults.pickerSize.height) / Math.min(this.imgWidth, this.imgHeight)) + this.defaults.maxScale;
             }
-
+            document.onselectstart = this.stopSelect;
             this.bindEvent();
         },
         bindEvent() {
@@ -80,6 +83,12 @@ export default {
             e.preventDefault();
             let left = this.left;
             let top = this.top;
+            if (typeof e.movementX !== 'number' && typeof e.movementY !== 'number') {
+                e.movementX = e.screenX - this.screenX;
+                e.movementY = e.screenY - this.screenY;
+                this.screenX = e.screenX;
+                this.screenY = e.screenY;
+            }
             left += e.movementX;
             top += e.movementY;
             if (this.defaults.stuck) {
@@ -94,14 +103,26 @@ export default {
             }
             this.top = top;
             this.left = left;
+            return false;
+        },
+
+        stopSelect(e) {
+            if (this.dragging) {
+                e.preventDefault();
+                return false;
+            }
         },
 
         mouseUp() {
-            window.removeEventListener('mousemove', this.mouseMove);
+            window.removeEventListener('mousemove', this.mouseMove, true);
+            this.dragging = false;
         },
 
-        mouseDown() {
-            window.addEventListener('mousemove', this.mouseMove);
+        mouseDown(e) {
+            this.dragging = true;
+            this.screenX = e.screenX;
+            this.screenY = e.screenY;
+            window.addEventListener('mousemove', this.mouseMove, true);
         },
 
         changeScale(e) {
